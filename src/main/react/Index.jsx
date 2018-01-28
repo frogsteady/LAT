@@ -1,6 +1,9 @@
 import {render} from 'react-dom';
 import React from 'react';
 import AButton from '@atlaskit/button';
+import FieldTextStateless from '@atlaskit/field-text';
+import LoginDialog from 'LoginDialog';
+
 
 
 // module.exports = {
@@ -9,5 +12,7 @@ import AButton from '@atlaskit/button';
 // };
 
 render(
-    <AButton appearance="primary">first button</AButton>, document.getElementById('content')
+
+        <LoginDialog/>
+    , document.getElementById('content')
 );
