@@ -2,6 +2,8 @@ import React, { Component, PureComponent } from 'react';
 import Lorem from 'react-lorem-component';
 import Button from '@atlaskit/button';
 import Modal from '@atlaskit/modal-dialog';
+import AButton from '@atlaskit/button';
+import FieldTextStateless from '@atlaskit/field-text';
 
 export default class ExampleBasic extends React.Component {
 
@@ -17,13 +19,13 @@ export default class ExampleBasic extends React.Component {
 
     open = () => this.setState({ isOpen: true });
     close() { this.setState({ isOpen: false }); }
-    secondaryAction(target) { console.log(target.innerText); }
+
 
     render() {
         const { isOpen } = this.state;
         const actions = [
-            { text: 'Close', onClick: this.close },
-            { text: 'Secondary Action', onClick: this.secondaryAction },
+            { text: 'Login', onClick: this.close, shouldFitContainer: true },
+
         ];
 
         return (
@@ -31,8 +33,21 @@ export default class ExampleBasic extends React.Component {
                 <Button onClick={this.open}>Open Modal</Button>
 
                 {isOpen && (
-                    <Modal actions={actions} onClose={this.close} heading="Modal Title">
-                        <Lorem count={2} />
+                    <Modal actions={actions} onClose={this.close} width={"small"} heading="Modal Title">
+                        <div>
+                            <FieldTextStateless label="Login"
+                                                shouldFitContainer={true}
+                                //onChange={this.setValue} value={this.state.value}
+                            />
+                            <FieldTextStateless label="Password"
+                                                type={"password"}
+                                                shouldFitContainer={true}
+                                //onChange={this.setValue} value={this.state.value}
+                            />
+
+                            <AButton appearance="link" >Forgot password?</AButton>
+
+                        </div>
                     </Modal>
                 )}
             </div>
