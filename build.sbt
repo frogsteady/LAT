@@ -1,15 +1,18 @@
-name := "lookatmeplay"
- 
-version := "1.0" 
-      
-lazy val `lookatmeplay` = (project in file(".")).enablePlugins(PlayJava)
+name := """lookatmeplay"""
 
-resolvers += "scalaz-bintray" at "https://dl.bintray.com/scalaz/releases"
-      
-scalaVersion := "2.11.11"
+version := "2.6.x"
 
-libraryDependencies ++= Seq( javaJdbc , cache , javaWs )
+lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/test" )  
+scalaVersion := "2.12.3"
 
-      
+libraryDependencies += guice
+libraryDependencies += "com.typesafe.play" %% "play-slick" %  "3.0.2"
+libraryDependencies += "com.typesafe.play" %% "play-slick-evolutions" % "3.0.2"
+libraryDependencies += "org.postgresql" % "postgresql" % "9.4-1200-jdbc41"
+
+libraryDependencies += "com.h2database" % "h2" % "1.4.194"
+libraryDependencies += "org.apache.commons" % "commons-email" % "1.4"
+
+libraryDependencies += specs2 % Test
+
