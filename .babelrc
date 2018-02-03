@@ -6,6 +6,7 @@
       "root": ["./src/main/react"],
       "alias": {
         "LoginDialogJSX": "./src/main/react/LoginDialog.jsx",
+        "CredentialsJSX": "./src/main/react/Credentials.jsx",
         "MainCSS": "./public/stylesheets/main.css"
       }
     }]

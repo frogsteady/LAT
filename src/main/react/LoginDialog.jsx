@@ -10,6 +10,7 @@ import '@atlaskit/button-group';
 import PersonIcon from '@atlaskit/icon/glyph/person';
 import SignInIcon from '@atlaskit/icon/glyph/sign-in';
 import Page, { Grid, GridColumn } from '@atlaskit/page'
+import CredentialsJSX from 'CredentialsJSX'
 
 export default class ExampleBasic extends React.Component {
 
@@ -19,15 +20,10 @@ export default class ExampleBasic extends React.Component {
         this.state = { isLogInForm: true, isSignUpForm: false };
     }
 
-    createNewAccountOnClick = () => this.setState({ isLogInForm: false, isSignUpForm: true });
-    logInWithExistingAccountOnClick = () => this.setState({ isLogInForm: true, isSignUpForm: false });
-
     render() {
-        const { isLogInForm } = this.state;
-        const { isSignUpForm } = this.state;
+
         const actions = [
             { text: 'Login', shouldFitContainer: true,  className:'width-wild' },
-
         ];
 
         return (
@@ -35,7 +31,7 @@ export default class ExampleBasic extends React.Component {
                 <div className={'white'}>
                 <PageHeader
                     actions={<ButtonGroup style={{paddingRight: "50px"}}>
-                        <Button appearance="primary" iconBefore={<SignInIcon/>}>Log In</Button>
+                        <Button appearance="link" >About Us</Button>
                         {/*<Button>Sign up</Button>*/}
 
                     </ButtonGroup>}>
@@ -56,66 +52,10 @@ export default class ExampleBasic extends React.Component {
                         </GridColumn>
                         <GridColumn medium={2}>
                         </GridColumn>
-                        {isLogInForm && <GridColumn medium={4}>
-                            <h2>Log in to get access to your lam page.</h2>
-                            <p>
-                                <div style={{border: '5px'}}>
-                                    <FieldTextStateless placeholder="Login"
-                                                        shouldFitContainer={true}
-                                        //onChange={this.setValue} value={this.state.value}
-                                    />
-                                    <FieldTextStateless placeholder="Password"
-                                                        type={"password"}
-                                                        shouldFitContainer={true}
-                                        //onChange={this.setValue} value={this.state.value}
-                                    />
 
-                                    <div style={{fontSize: "10px"}}>
-                                        <AButton appearance="link" >Forgot password?</AButton>
-                                    </div>
-                                    <br/>
-                                    <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
-                                    <div style={{fontSize: "12px", textAlign: "center"}}>
-                                        <AButton onClick={this.createNewAccountOnClick} appearance="link" >Create a new account</AButton>
-                                    </div>
-                                </div>
-                            </p>
-                        </GridColumn>}
-
-                        {isSignUpForm && <GridColumn medium={4}>
-                            <h2>Sign up to create you own lam page.</h2>
-                            <p>
-                                <div style={{border: '5px'}}>
-                                    <FieldTextStateless placeholder="Email"
-                                                        shouldFitContainer={true}
-                                    />
-
-                                    <FieldTextStateless placeholder="Full name"
-                                                        shouldFitContainer={true}
-                                    />
-
-                                    <FieldTextStateless placeholder="Login"
-                                                        shouldFitContainer={true}
-                                        //onChange={this.setValue} value={this.state.value}
-                                    />
-                                    <FieldTextStateless placeholder="Password"
-                                                        type={"password"}
-                                                        shouldFitContainer={true}
-                                        //onChange={this.setValue} value={this.state.value}
-                                    />
-
-                                    <div style={{fontSize: "10px"}}>
-                                        <AButton appearance="link" >Forgot password?</AButton>
-                                    </div>
-                                    <br/>
-                                    <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
-                                    <div style={{fontSize: "12px", textAlign: "center"}}>
-                                        <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link" >Log In with an existing account</AButton>
-                                    </div>
-                                </div>
-                            </p>
-                        </GridColumn>}
-
+                        <GridColumn medium={4}>
+                        <CredentialsJSX/>
+                        </GridColumn>
                         <GridColumn>
                             <h2>Content below which takes up remaining space</h2>
                             <p>
