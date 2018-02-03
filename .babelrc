@@ -5,7 +5,8 @@
     ["module-resolver", {
       "root": ["./src/main/react"],
       "alias": {
-        "LoginDialog": "./src/main/react/LoginDialog.jsx"
+        "LoginDialogJSX": "./src/main/react/LoginDialog.jsx",
+        "MainCSS": "./public/stylesheets/main.css"
       }
     }]
   ]
