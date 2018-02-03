@@ -16,21 +16,17 @@ export default class ExampleBasic extends React.Component {
     constructor() {
         super();
 
-        this.state = { isOpen: false };
+        this.state = { isLogInForm: true, isSignUpForm: false };
     }
 
-    handleClick = () => {
-        console.log('this is:', this);
-    }
-
-    open = () => this.setState({ isOpen: true });
-    close() { this.setState({ isOpen: false }); }
-
+    createNewAccountOnClick = () => this.setState({ isLogInForm: false, isSignUpForm: true });
+    logInWithExistingAccountOnClick = () => this.setState({ isLogInForm: true, isSignUpForm: false });
 
     render() {
-        const { isOpen } = this.state;
+        const { isLogInForm } = this.state;
+        const { isSignUpForm } = this.state;
         const actions = [
-            { text: 'Login', onClick: this.close, shouldFitContainer: true,  className:'width-wild' },
+            { text: 'Login', shouldFitContainer: true,  className:'width-wild' },
 
         ];
 
@@ -39,7 +35,7 @@ export default class ExampleBasic extends React.Component {
                 <div className={'white'}>
                 <PageHeader
                     actions={<ButtonGroup style={{paddingRight: "50px"}}>
-                        <Button onClick={this.open} appearance="primary" iconBefore={<SignInIcon/>}>Log In</Button>
+                        <Button appearance="primary" iconBefore={<SignInIcon/>}>Log In</Button>
                         {/*<Button>Sign up</Button>*/}
 
                     </ButtonGroup>}>
@@ -60,15 +56,15 @@ export default class ExampleBasic extends React.Component {
                         </GridColumn>
                         <GridColumn medium={2}>
                         </GridColumn>
-                        <GridColumn medium={4}>
-                            <h2>Sidebar</h2>
+                        {isLogInForm && <GridColumn medium={4}>
+                            <h2>Log in to get access to your lam page.</h2>
                             <p>
-                                <div>
-                                    <FieldTextStateless label="Login"
+                                <div style={{border: '5px'}}>
+                                    <FieldTextStateless placeholder="Login"
                                                         shouldFitContainer={true}
                                         //onChange={this.setValue} value={this.state.value}
                                     />
-                                    <FieldTextStateless label="Password"
+                                    <FieldTextStateless placeholder="Password"
                                                         type={"password"}
                                                         shouldFitContainer={true}
                                         //onChange={this.setValue} value={this.state.value}
@@ -77,9 +73,49 @@ export default class ExampleBasic extends React.Component {
                                     <div style={{fontSize: "10px"}}>
                                         <AButton appearance="link" >Forgot password?</AButton>
                                     </div>
+                                    <br/>
+                                    <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
+                                    <div style={{fontSize: "12px", textAlign: "center"}}>
+                                        <AButton onClick={this.createNewAccountOnClick} appearance="link" >Create a new account</AButton>
+                                    </div>
                                 </div>
                             </p>
-                        </GridColumn>
+                        </GridColumn>}
+
+                        {isSignUpForm && <GridColumn medium={4}>
+                            <h2>Sign up to create you own lam page.</h2>
+                            <p>
+                                <div style={{border: '5px'}}>
+                                    <FieldTextStateless placeholder="Email"
+                                                        shouldFitContainer={true}
+                                    />
+
+                                    <FieldTextStateless placeholder="Full name"
+                                                        shouldFitContainer={true}
+                                    />
+
+                                    <FieldTextStateless placeholder="Login"
+                                                        shouldFitContainer={true}
+                                        //onChange={this.setValue} value={this.state.value}
+                                    />
+                                    <FieldTextStateless placeholder="Password"
+                                                        type={"password"}
+                                                        shouldFitContainer={true}
+                                        //onChange={this.setValue} value={this.state.value}
+                                    />
+
+                                    <div style={{fontSize: "10px"}}>
+                                        <AButton appearance="link" >Forgot password?</AButton>
+                                    </div>
+                                    <br/>
+                                    <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
+                                    <div style={{fontSize: "12px", textAlign: "center"}}>
+                                        <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link" >Log In with an existing account</AButton>
+                                    </div>
+                                </div>
+                            </p>
+                        </GridColumn>}
+
                         <GridColumn>
                             <h2>Content below which takes up remaining space</h2>
                             <p>
@@ -93,25 +129,25 @@ export default class ExampleBasic extends React.Component {
                 </Page>
 
 
-                {isOpen && (
-                    <Modal actions={actions} onClose={this.close} width={"small"} heading="Modal Title">
-                        <div>
-                            <FieldTextStateless label="Login"
-                                                shouldFitContainer={true}
-                                //onChange={this.setValue} value={this.state.value}
-                            />
-                            <FieldTextStateless label="Password"
-                                                type={"password"}
-                                                shouldFitContainer={true}
-                                //onChange={this.setValue} value={this.state.value}
-                            />
+                {/*{ (*/}
+                    {/*<Modal actions={actions} onClose={this.close} width={"small"} heading="Modal Title">*/}
+                        {/*<div>*/}
+                            {/*<FieldTextStateless label="Login"*/}
+                                                {/*shouldFitContainer={true}*/}
+                                {/*//onChange={this.setValue} value={this.state.value}*/}
+                            {/*/>*/}
+                            {/*<FieldTextStateless label="Password"*/}
+                                                {/*type={"password"}*/}
+                                                {/*shouldFitContainer={true}*/}
+                                {/*//onChange={this.setValue} value={this.state.value}*/}
+                            {/*/>*/}
 
-                            <div style={{fontSize: "10px"}}>
-                            <AButton appearance="link" >Forgot password?</AButton>
-                            </div>
-                        </div>
-                    </Modal>
-                )}
+                            {/*<div style={{fontSize: "10px"}}>*/}
+                            {/*<AButton appearance="link" >Forgot password?</AButton>*/}
+                            {/*</div>*/}
+                        {/*</div>*/}
+                    {/*</Modal>*/}
+                {/*)}*/}
             </div>
         );
     }
