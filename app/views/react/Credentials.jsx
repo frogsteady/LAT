@@ -32,15 +32,17 @@ export default class Credentials extends React.Component {
             <div>
 
                 {isLogInForm &&
-                <p>
+                <div>
                     <h2>Log in to get access to your lam page.</h2>
 
                     <div style={{border: '5px'}}>
-                        <FieldTextStateless placeholder="Login"
-                                            shouldFitContainer={true}/>
-                        <FieldTextStateless placeholder="Password"
-                                            type={"password"}
-                                            shouldFitContainer={true}/>
+
+                            <FieldTextStateless placeholder="Login"
+                                                shouldFitContainer={true}/>
+                            <FieldTextStateless placeholder="Password"
+                                                type={"password"}
+                                                shouldFitContainer={true}/>
+
                         <div style={{fontSize: "10px"}}>
                             <AButton onClick={this.forgotAccountOnClick} appearance="link">Forgot password?</AButton>
                         </div>
@@ -51,22 +53,25 @@ export default class Credentials extends React.Component {
                                 account</AButton>
                         </div>
                     </div>
-                </p>
+                </div>
+
                 }
 
                 {isSignUpForm &&
-                <p>
+                <div>
                     <h2>Sign up to create you own lam page.</h2>
                     <div style={{border: '5px'}}>
-                        <FieldTextStateless placeholder="Email"
-                                            shouldFitContainer={true}/>
-                        <FieldTextStateless placeholder="Full name"
-                                            shouldFitContainer={true}/>
-                        <FieldTextStateless placeholder="Login"
-                                            shouldFitContainer={true}/>
-                        <FieldTextStateless placeholder="Password"
-                                            type={"password"}
-                                            shouldFitContainer={true}/>
+
+                            <FieldTextStateless placeholder="Email"
+                                                shouldFitContainer={true}/>
+                            <FieldTextStateless placeholder="Full name"
+                                                shouldFitContainer={true}/>
+                            <FieldTextStateless placeholder="Login"
+                                                shouldFitContainer={true}/>
+                            <FieldTextStateless placeholder="Password"
+                                                type={"password"}
+                                                shouldFitContainer={true}/>
+
                         <br/>
                         <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
@@ -74,25 +79,28 @@ export default class Credentials extends React.Component {
                                 existing account</AButton>
                         </div>
                     </div>
-                </p>
+                </div>
                 }
 
                 {isForgotForm &&
-                <p>
+                <div>
                     <h2>Reset Password.</h2>
                     <div style={{border: '5px'}}>
                         <div>We can help you reset your password using your email address linked to your account.</div>
-                        <FieldTextStateless placeholder="Email"
-                                            shouldFitContainer={true}/>
+
+                            <FieldTextStateless placeholder="Email"
+                                                shouldFitContainer={true}/>
+
 
                         <br/>
                         <Button shouldFitContainer={true} appearance="primary" iconBefore={<EmailIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
-                        <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link">Return to Log In</AButton>
+                            <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link">Return to Log
+                                In</AButton>
                         </div>
 
                     </div>
-                </p>
+                </div>
                 }
 
             </div>
