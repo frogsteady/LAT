@@ -25,7 +25,7 @@ class UserController @Inject()(repo: UserRepository,
   def createUser = Action.async {
     implicit request =>
       request.body.asJson.flatMap(_.asOpt[UserJson]) match {
-        case Some(u) => repo.create(u.login, u.password, u.email).map(createdU => Created(Json.toJson(createdU)))
+        case Some(u) => repo.create(u.login, u.password, u.name, u.email).map(createdU => Created(Json.toJson(createdU)))
         case _ => Future.successful(NotFound("Couldn't parse user json"))
       }
   }
@@ -40,7 +40,7 @@ class UserController @Inject()(repo: UserRepository,
   def updateUser(id: Long) = Action.async {
     implicit request =>
       request.body.asJson.flatMap(_.asOpt[UserJson]) match {
-        case Some(u) => repo.update(id, u.login, u.name.orNull, u.password, u.email).map {
+        case Some(u) => repo.update(id, u.login, u.name, u.password, u.email).map {
           case true => NoContent
           case _ => NotFound(s"User with $id was not found")
         }

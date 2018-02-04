@@ -38,11 +38,11 @@ class UserRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implici
 
   private val users = TableQuery[UserTable]
 
-  def create(login: String, password: String, email: String): Future[User] = db.run {
-    (users.map(p => (p.login, p.password, p.email, p.registration))
+  def create(login: String, password: String, name: String, email: String): Future[User] = db.run {
+    (users.map(p => (p.login, p.password, p.name, p.email, p.registration))
       returning users.map(_.id)
-      into ((nameAge, id) => User(id, nameAge._1, null, nameAge._2, nameAge._3, nameAge._4)
-      ) += (login, password, email, new Date(Calendar.getInstance().getTimeInMillis)))
+      into ((t, id) => User(id, t._1, t._2, t._3, t._4, t._5))
+      += (login, password, name, email, new Date(Calendar.getInstance().getTimeInMillis)))
   }
 
   def read(id: Long): Future[Option[User]] = db.run {

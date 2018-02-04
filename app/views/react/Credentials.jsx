@@ -14,6 +14,9 @@ export default class Credentials extends React.Component {
         super();
 
         this.state = {
+
+            userToCreate: {login: '', password: '', name: '', email: 'DEACTIVATED'},
+
             isLogInForm: true,
             isSignUpForm: false,
             isForgotForm: false
@@ -25,8 +28,12 @@ export default class Credentials extends React.Component {
     logInWithExistingAccountOnClick = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
     forgotAccountOnClick = () => this.setState({isLogInForm: false, isSignUpForm: false, isForgotForm: true});
 
+    doLogin() {
+        UsersClient.createUser();
+    }
+
     render() {
-        const {isLogInForm, isSignUpForm, isForgotForm} = this.state;
+        const {isLogInForm, isSignUpForm, isForgotForm, userToCreate} = this.state;
 
         return (
             <div>
@@ -62,13 +69,17 @@ export default class Credentials extends React.Component {
                     <h2>Sign up to create you own lam page.</h2>
                     <div style={{border: '5px'}}>
 
-                            <FieldTextStateless placeholder="Email"
+                            <FieldTextStateless value={userToCreate.email}
+                                                placeholder="Email"
                                                 shouldFitContainer={true}/>
-                            <FieldTextStateless placeholder="Full name"
+                            <FieldTextStateless value={userToCreate.name}
+                                                placeholder="Full name"
                                                 shouldFitContainer={true}/>
-                            <FieldTextStateless placeholder="Login"
+                            <FieldTextStateless value={userToCreate.login}
+                                                placeholder="Login"
                                                 shouldFitContainer={true}/>
-                            <FieldTextStateless placeholder="Password"
+                            <FieldTextStateless value={userToCreate.password}
+                                                placeholder="Password"
                                                 type={"password"}
                                                 shouldFitContainer={true}/>
 

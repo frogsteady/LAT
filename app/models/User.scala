@@ -4,9 +4,9 @@ import java.sql.Date
 
 import play.api.libs.json.Json
 
-case class User(id: Long, login: String, name: String, password: String, email: String, registration: Date)
+case class User(id: Long, login: String, password: String, name: String, email: String, registration: Date)
 
-case class UserJson(id: Option[Long], login: String, name: Option[String], password: String, email: String)
+case class UserJson(id: Option[Long], login: String, password: String, name: String, email: String)
 
 object User {
   implicit val _ = Json.format[User]
