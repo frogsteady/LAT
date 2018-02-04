@@ -5,21 +5,28 @@ import FieldTextStateless from '@atlaskit/field-text';
 import 'MainCSS';
 import '@atlaskit/button-group';
 import SignInIcon from '@atlaskit/icon/glyph/sign-in';
+import EmailIcon from '@atlaskit/icon/glyph/email';
 
 export default class Credentials extends React.Component {
 
     constructor() {
         super();
 
-        this.state = {isLogInForm: true, isSignUpForm: false};
+        this.state = {
+            isLogInForm: true,
+            isSignUpForm: false,
+            isForgotForm: false
+        };
+
     }
 
-    createNewAccountOnClick = () => this.setState({isLogInForm: false, isSignUpForm: true});
-    logInWithExistingAccountOnClick = () => this.setState({isLogInForm: true, isSignUpForm: false});
+    createNewAccountOnClick = () => this.setState({isLogInForm: false, isSignUpForm: true, isForgotForm: false});
+    logInWithExistingAccountOnClick = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
+    forgotAccountOnClick = () => this.setState({isLogInForm: false, isSignUpForm: false, isForgotForm: true});
 
     render() {
-        const {isLogInForm} = this.state;
-        const {isSignUpForm} = this.state;
+        const {isLogInForm, isSignUpForm, isForgotForm} = this.state;
+
         return (
             <div>
 
@@ -34,7 +41,7 @@ export default class Credentials extends React.Component {
                                             type={"password"}
                                             shouldFitContainer={true}/>
                         <div style={{fontSize: "10px"}}>
-                            <AButton appearance="link">Forgot password?</AButton>
+                            <AButton onClick={this.forgotAccountOnClick} appearance="link">Forgot password?</AButton>
                         </div>
                         <br/>
                         <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
@@ -65,6 +72,24 @@ export default class Credentials extends React.Component {
                             <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link">Log In with an
                                 existing account</AButton>
                         </div>
+                    </div>
+                </p>
+                }
+
+                {isForgotForm &&
+                <p>
+                    <h2>Reset Password.</h2>
+                    <div style={{border: '5px'}}>
+                        <div>We can help you reset your password using your email address linked to your account.</div>
+                        <FieldTextStateless placeholder="Email"
+                                            shouldFitContainer={true}/>
+
+                        <br/>
+                        <Button shouldFitContainer={true} appearance="primary" iconBefore={<EmailIcon/>}/>
+                        <div style={{fontSize: "12px", textAlign: "center"}}>
+                        <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link">Return to Log In</AButton>
+                        </div>
+
                     </div>
                 </p>
                 }

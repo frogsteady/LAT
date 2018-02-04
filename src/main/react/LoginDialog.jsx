@@ -54,7 +54,7 @@ export default class ExampleBasic extends React.Component {
                         </GridColumn>
 
                         <GridColumn medium={4}>
-                        <CredentialsJSX/>
+                            <CredentialsJSX/>
                         </GridColumn>
                         <GridColumn>
                             <h2>Content below which takes up remaining space</h2>
