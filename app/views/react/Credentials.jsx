@@ -6,6 +6,7 @@ import 'MainCSS';
 import '@atlaskit/button-group';
 import SignInIcon from '@atlaskit/icon/glyph/sign-in';
 import EmailIcon from '@atlaskit/icon/glyph/email';
+import UsersClient from 'UsersClient';
 
 export default class Credentials extends React.Component {
 

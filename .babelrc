@@ -5,8 +5,11 @@
     ["module-resolver", {
       "root": ["./src/main/react"],
       "alias": {
-        "LoginDialogJSX": "./src/main/react/LoginDialog.jsx",
-        "CredentialsJSX": "./src/main/react/Credentials.jsx",
+        "LoginDialogComponent": "./app/views/react/LoginDialog.jsx",
+        "CredentialsComponent": "./app/views/react/Credentials.jsx",
+
+        "UsersClient": "./app/views/react/rest/clients/UsersClient.jsx",
+
         "MainCSS": "./public/stylesheets/main.css"
       }
     }]

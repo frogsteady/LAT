@@ -8,14 +8,14 @@ GET     /                           controllers.Application.index
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
-GET           /users           controllers.UserController.readUsers
-POST          /user            controllers.UserController.createUser
-GET           /user/:id        controllers.UserController.readUser(id: Long)
-PUT           /user/:id        controllers.UserController.updateUser(id: Long)
-DELETE        /user/:id        controllers.UserController.deleteUser(id: Long)
+GET           /rest/users           controllers.UserController.readUsers
+POST          /rest/user            controllers.UserController.createUser
+GET           /rest/user/:id        controllers.UserController.readUser(id: Long)
+PUT           /rest/user/:id        controllers.UserController.updateUser(id: Long)
+DELETE        /rest/user/:id        controllers.UserController.deleteUser(id: Long)
 
-GET           /links           controllers.LinkController.readLinks
-POST          /link            controllers.LinkController.create
-GET           /link/:id        controllers.LinkController.read(id: Long)
-PUT           /link/:id        controllers.LinkController.update(id: Long)
-DELETE        /link/:id        controllers.LinkController.delete(id: Long)
+GET           /rest/links           controllers.LinkController.readLinks
+POST          /rest/link            controllers.LinkController.create
+GET           /rest/link/:id        controllers.LinkController.read(id: Long)
+PUT           /rest/link/:id        controllers.LinkController.update(id: Long)
+DELETE        /rest/link/:id        controllers.LinkController.delete(id: Long)

@@ -5,10 +5,10 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
     entry: {
-        page: './src/main/react/index.jsx'
+        page: './app/views/react/index.jsx'
     },
     output: {
-        filename: 'target/build.js',
+        filename: 'public/javascripts/build.js',
         publicPath: '/',
         // export itself to a global var
         libraryTarget: "var",

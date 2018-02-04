@@ -1,16 +1,10 @@
-import React, { Component, PureComponent } from 'react';
-import Lorem from 'react-lorem-component';
-import Button from '@atlaskit/button';
-import Modal from '@atlaskit/modal-dialog';
-import AButton, {ButtonGroup} from '@atlaskit/button';
+import React, {Component, PureComponent} from 'react';
+import Button, {ButtonGroup} from '@atlaskit/button';
 import PageHeader from '@atlaskit/page-header';
-import FieldTextStateless from '@atlaskit/field-text';
 import 'MainCSS';
 import '@atlaskit/button-group';
-import PersonIcon from '@atlaskit/icon/glyph/person';
-import SignInIcon from '@atlaskit/icon/glyph/sign-in';
-import Page, { Grid, GridColumn } from '@atlaskit/page'
-import CredentialsJSX from 'CredentialsJSX'
+import Page, {Grid, GridColumn} from '@atlaskit/page'
+import CredentialsJSX from 'CredentialsComponent'
 
 export default class ExampleBasic extends React.Component {
 
