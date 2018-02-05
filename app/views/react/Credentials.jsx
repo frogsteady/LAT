@@ -15,7 +15,7 @@ export default class Credentials extends React.Component {
 
         this.state = {
 
-            userToCreate: {login: '', password: '', name: '', email: 'DEACTIVATED'},
+            userToCreate: {login: '', password: '', name: '', email: ''},
 
             isLogInForm: true,
             isSignUpForm: false,
@@ -24,12 +24,13 @@ export default class Credentials extends React.Component {
 
     }
 
-    createNewAccountOnClick = () => this.setState({isLogInForm: false, isSignUpForm: true, isForgotForm: false});
-    logInWithExistingAccountOnClick = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
-    forgotAccountOnClick = () => this.setState({isLogInForm: false, isSignUpForm: false, isForgotForm: true});
+    goCreateNewAccount = () => this.setState({isLogInForm: false, isSignUpForm: true, isForgotForm: false});
+    goLogInWithExistingAccount = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
+    goForgotAccount= () => this.setState({isLogInForm: false, isSignUpForm: false, isForgotForm: true});
 
-    doLogin() {
-        UsersClient.createUser();
+    doCreateUser = () => {
+        console.log('doCreateUser is pressed');
+        UsersClient(this.props.handleAuthError).createUser(this.state.userToCreate);
     }
 
     render() {
@@ -51,12 +52,12 @@ export default class Credentials extends React.Component {
                                                 shouldFitContainer={true}/>
 
                         <div style={{fontSize: "10px"}}>
-                            <AButton onClick={this.forgotAccountOnClick} appearance="link">Forgot password?</AButton>
+                            <AButton onClick={this.goForgotAccount} appearance="link">Forgot password?</AButton>
                         </div>
                         <br/>
                         <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
-                            <AButton onClick={this.createNewAccountOnClick} appearance="link">Create a new
+                            <AButton onClick={this.goCreateNewAccount} appearance="link">Create a new
                                 account</AButton>
                         </div>
                     </div>
@@ -84,9 +85,9 @@ export default class Credentials extends React.Component {
                                                 shouldFitContainer={true}/>
 
                         <br/>
-                        <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
+                        <Button onClick={this.doCreateUser} shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
-                            <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link">Log In with an
+                            <AButton onClick={this.goLogInWithExistingAccount} appearance="link">Log In with an
                                 existing account</AButton>
                         </div>
                     </div>
@@ -106,7 +107,7 @@ export default class Credentials extends React.Component {
                         <br/>
                         <Button shouldFitContainer={true} appearance="primary" iconBefore={<EmailIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
-                            <AButton onClick={this.logInWithExistingAccountOnClick} appearance="link">Return to Log
+                            <AButton onClick={this.goLogInWithExistingAccount} appearance="link">Return to Log
                                 In</AButton>
                         </div>
 

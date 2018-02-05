@@ -3,11 +3,12 @@ import axios from "axios";
 
 module.exports = function (errorHandling) {
 
-    getBaseUrl = () => ""
+
 
     return {
+
         createUser: function (userJson) {
-            return axios.post(getBaseUrl() + '/rest/user',
+            return axios.post('/rest/1/user',
                 userJson,
                 {}
             )
