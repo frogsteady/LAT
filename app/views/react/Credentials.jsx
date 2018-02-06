@@ -1,12 +1,12 @@
 import React, {Component, PureComponent} from 'react';
-import Button from '@atlaskit/button';
-import AButton from '@atlaskit/button';
+import Button from '@atlaskit/button';;
 import FieldTextStateless from '@atlaskit/field-text';
 import 'MainCSS';
 import '@atlaskit/button-group';
 import SignInIcon from '@atlaskit/icon/glyph/sign-in';
 import EmailIcon from '@atlaskit/icon/glyph/email';
 import UsersClient from 'UsersClient';
+import InviteTeamIcon from '@atlaskit/icon/glyph/invite-team';
 
 export default class Credentials extends React.Component {
 
@@ -15,12 +15,14 @@ export default class Credentials extends React.Component {
 
         this.state = {
 
-            userToCreate: {login: '', password: '', name: '', email: ''},
+            login: '', password: '', name: '', email: '',
 
             isLogInForm: true,
             isSignUpForm: false,
             isForgotForm: false
         };
+
+        this.handleInputChange = this.handleInputChange.bind(this);
 
     }
 
@@ -28,13 +30,23 @@ export default class Credentials extends React.Component {
     goLogInWithExistingAccount = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
     goForgotAccount= () => this.setState({isLogInForm: false, isSignUpForm: false, isForgotForm: true});
 
+
     doCreateUser = () => {
         console.log('doCreateUser is pressed');
-        UsersClient(this.props.handleAuthError).createUser(this.state.userToCreate);
+        const {login, password, name, email} = this.state;
+        UsersClient(this.props.handleAuthError).createUser({login, password, name, email});
+    };
+
+    handleInputChange(event) {
+        let {name, value} = event.target;
+        console.debug('handleInputChange is executed, name='+name+', value='+value);
+        this.setState({[name]: value});
     }
 
     render() {
-        const {isLogInForm, isSignUpForm, isForgotForm, userToCreate} = this.state;
+
+        const {login, password, name, email} = this.state;
+        const {isLogInForm, isSignUpForm, isForgotForm} = this.state;
 
         return (
             <div>
@@ -52,13 +64,12 @@ export default class Credentials extends React.Component {
                                                 shouldFitContainer={true}/>
 
                         <div style={{fontSize: "10px"}}>
-                            <AButton onClick={this.goForgotAccount} appearance="link">Forgot password?</AButton>
+                            <Button onClick={this.goForgotAccount} appearance="link">Forgot password?</Button>
                         </div>
                         <br/>
                         <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
-                            <AButton onClick={this.goCreateNewAccount} appearance="link">Create a new
-                                account</AButton>
+                            <Button onClick={this.goCreateNewAccount} appearance="link">Create a new account</Button>
                         </div>
                     </div>
                 </div>
@@ -70,25 +81,32 @@ export default class Credentials extends React.Component {
                     <h2>Sign up to create you own lam page.</h2>
                     <div style={{border: '5px'}}>
 
-                            <FieldTextStateless value={userToCreate.email}
+                            <FieldTextStateless value={email}
                                                 placeholder="Email"
+                                                name="email"
+                                                onChange={this.handleInputChange}
                                                 shouldFitContainer={true}/>
-                            <FieldTextStateless value={userToCreate.name}
+                            <FieldTextStateless value={name}
                                                 placeholder="Full name"
+                                                name="name"
+                                                onChange={this.handleInputChange}
                                                 shouldFitContainer={true}/>
-                            <FieldTextStateless value={userToCreate.login}
+                            <FieldTextStateless value={login}
                                                 placeholder="Login"
+                                                name="login"
+                                                onChange={this.handleInputChange}
                                                 shouldFitContainer={true}/>
-                            <FieldTextStateless value={userToCreate.password}
+                            <FieldTextStateless value={password}
                                                 placeholder="Password"
+                                                name="password"
                                                 type={"password"}
+                                                onChange={this.handleInputChange}
                                                 shouldFitContainer={true}/>
 
                         <br/>
-                        <Button onClick={this.doCreateUser} shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
+                        <Button onClick={this.doCreateUser} shouldFitContainer={true} appearance="primary" iconBefore={<InviteTeamIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
-                            <AButton onClick={this.goLogInWithExistingAccount} appearance="link">Log In with an
-                                existing account</AButton>
+                            <Button onClick={this.goLogInWithExistingAccount} appearance="link">Log In with an existing account</Button>
                         </div>
                     </div>
                 </div>
@@ -107,8 +125,7 @@ export default class Credentials extends React.Component {
                         <br/>
                         <Button shouldFitContainer={true} appearance="primary" iconBefore={<EmailIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
-                            <AButton onClick={this.goLogInWithExistingAccount} appearance="link">Return to Log
-                                In</AButton>
+                            <Button onClick={this.goLogInWithExistingAccount} appearance="link">Return to Log In</Button>
                         </div>
 
                     </div>
