@@ -12,6 +12,8 @@
     "@atlaskit/field-text": "^4.1.6",
     "@atlaskit/icon": "^10.8.0",
     "@atlaskit/inline-dialog": "^5.1.2",
+    "@atlaskit/inline-edit": "^4.5.18",
+    "@atlaskit/input": "^1.6.6",
     "@atlaskit/modal-dialog": "^3.3.7",
     "@atlaskit/page": "^5.0.11",
     "@atlaskit/page-header": "^2.2.0",

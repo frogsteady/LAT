@@ -6,6 +6,9 @@ import '@atlaskit/button-group';
 import Page, {Grid, GridColumn} from '@atlaskit/page'
 import CredentialsJSX from 'CredentialsComponent'
 
+import SingleLineTextInput from '@atlaskit/input';
+import InlineEdit from '@atlaskit/inline-edit';
+
 export default class ExampleBasic extends React.Component {
 
     constructor() {
@@ -43,6 +46,23 @@ export default class ExampleBasic extends React.Component {
                                 commodi, nobis ut, error iusto, quas vitae nesciunt consequatur
                                 possimus labore! Mollitia est quis minima asperiores.
                             </p>
+
+                            hi there
+                            <InlineEdit
+                                label="With edit & read views"
+                                readView="Read view"
+                                editView={
+                                    <SingleLineTextInput
+                                        id="inline-edit-text-input"
+                                        isEditing
+                                        isInitiallySelected
+                                        value={this.state.editValue}
+                                        onChange={this.onChange}
+                                    />
+                                }
+                                onConfirm={this.onConfirm}
+                                onCancel={this.onCancel}
+                            />
                         </GridColumn>
                         <GridColumn medium={2}>
                         </GridColumn>
