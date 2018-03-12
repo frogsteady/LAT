@@ -7,4 +7,5 @@ class Application extends Controller {
 //    Ok("Your new application is ready.")
     Ok(views.html.index("hi"))
   }
+
 }
