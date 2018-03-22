@@ -1,10 +1,16 @@
 package controllers
 
-import play.api.mvc.{Action, Controller}
+import javax.inject.{Inject, Singleton}
 
-class Application extends Controller {
-  def index = Action {
-//    Ok("Your new application is ready.")
+import play.api.mvc.{AbstractController, Action, Controller, ControllerComponents}
+
+@Singleton
+class Application @Inject() (
+                                 userAction: UserInfoAction,
+                                 cc: ControllerComponents
+                               ) extends AbstractController(cc) {
+
+  def index = userAction { implicit request: UserRequest[_] =>
     Ok(views.html.index("hi"))
   }
 

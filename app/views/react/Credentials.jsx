@@ -7,6 +7,7 @@ import SignInIcon from '@atlaskit/icon/glyph/sign-in';
 import EmailIcon from '@atlaskit/icon/glyph/email';
 import UsersClient from 'UsersClient';
 import InviteTeamIcon from '@atlaskit/icon/glyph/invite-team';
+import renderHTML from 'react-render-html';
 
 export default class Credentials extends React.Component {
 
@@ -55,23 +56,27 @@ export default class Credentials extends React.Component {
                 <div>
                     <h2>Log in to get access to your lam page.</h2>
 
-                    <div style={{border: '5px'}}>
+                    <form action={"/login"} method={"POST"} style={{border: '5px'}}>
 
                             <FieldTextStateless placeholder="Login"
+                                                name={"username"}
                                                 shouldFitContainer={true}/>
                             <FieldTextStateless placeholder="Password"
                                                 type={"password"}
                                                 shouldFitContainer={true}/>
 
+
+                        {renderHTML(document.csrfToken)}
+
                         <div style={{fontSize: "10px"}}>
                             <Button onClick={this.goForgotAccount} appearance="link">Forgot password?</Button>
                         </div>
                         <br/>
-                        <Button shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
+                        <Button type={"submit"} shouldFitContainer={true} appearance="primary" iconBefore={<SignInIcon/>}/>
                         <div style={{fontSize: "12px", textAlign: "center"}}>
                             <Button onClick={this.goCreateNewAccount} appearance="link">Create a new account</Button>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
                 }
