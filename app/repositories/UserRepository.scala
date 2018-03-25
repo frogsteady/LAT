@@ -49,6 +49,10 @@ class UserRepository @Inject()(dbConfigProvider: DatabaseConfigProvider)(implici
     users.filter(_.id === id).result.headOption
   }
 
+  def read(login: String): Future[Option[User]] = db.run {
+    users.filter(_.login === login).result.headOption
+  }
+
   def readAll(): Future[Seq[User]] = db.run {
     users.result
   }

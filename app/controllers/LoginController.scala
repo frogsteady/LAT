@@ -4,6 +4,7 @@ import javax.inject.{Inject, Singleton}
 
 import play.api.data.Form
 import play.api.mvc._
+import services.UserService
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -11,18 +12,25 @@ import scala.concurrent.{ExecutionContext, Future}
 class LoginController @Inject() (
   userAction: UserInfoAction,
   sessionGenerator: SessionGenerator,
-  cc: ControllerComponents
+  cc: ControllerComponents,
+  userService: UserService
 )(implicit ec: ExecutionContext)
     extends AbstractController(cc) {
 
   def login = userAction.async { implicit request: UserRequest[AnyContent] =>
     val successFunc = { userInfo: UserInfo =>
-      sessionGenerator.createSession(userInfo).map {
-        case (sessionId, encryptedCookie) =>
-          val session = request.session + (SESSION_ID -> sessionId)
-          Redirect(routes.HomeController.index())
-            .withSession(session)
-            .withCookies(encryptedCookie)
+
+      userService.checkUserCredentials(userInfo.username, userInfo.password).flatMap{
+        case true => sessionGenerator.createSession(userInfo).map {
+          case (sessionId, encryptedCookie) =>
+            val session = request.session + (SESSION_ID -> sessionId)
+            Redirect(routes.HomeController.index())
+              .withSession(session)
+              .withCookies(encryptedCookie)
+        }
+        case false =>  Future.successful {
+          Redirect(routes.HomeController.index()).flashing(FLASH_ERROR -> "Could not login! Please check your credentials.")
+        }
       }
     }
 

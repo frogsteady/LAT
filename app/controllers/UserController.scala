@@ -33,7 +33,14 @@ class UserController @Inject()(repo: UserRepository,
   def readUser(id: Long) = Action.async {
     repo.read(id).map {
       case Some(u) => Ok(Json.toJson(u))
-      case _ => NotFound(s"User with $id was not found")
+      case _ => NotFound(s"User with id '$id' was not found")
+    }
+  }
+
+  def readUser(login: String) = Action.async {
+    repo.read(login).map {
+      case Some(u) => Ok(Json.toJson(u))
+      case _ => NotFound(s"User with login '$login' was not found")
     }
   }
 

@@ -8,7 +8,7 @@ import services.encryption.{EncryptedCookieBaker, EncryptionService}
 import services.session.SessionService
 
 import scala.concurrent.duration._
-import scala.concurrent.{ExecutionContext, Future}
+import scala.concurrent.{Await, ExecutionContext, Future}
 
 /**
  * Methods and objects common to all controllers
@@ -24,7 +24,7 @@ package object controllers {
 
   val USER_INFO_COOKIE_NAME = "userInfo"
 
-  case class UserInfo(username: String)
+  case class UserInfo(username: String, password: String)
 
   object UserInfo {
     // Use a JSON format to automatically convert between case class and JsObject
@@ -33,7 +33,8 @@ package object controllers {
 
   val form = Form(
     mapping(
-      "username" -> text
+      "username" -> text,
+      "password" -> text
     )(UserInfo.apply)(UserInfo.unapply)
   )
 

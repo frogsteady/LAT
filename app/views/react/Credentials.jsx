@@ -62,6 +62,7 @@ export default class Credentials extends React.Component {
                                                 name={"username"}
                                                 shouldFitContainer={true}/>
                             <FieldTextStateless placeholder="Password"
+                                                name={"password"}
                                                 type={"password"}
                                                 shouldFitContainer={true}/>
 
