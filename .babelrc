@@ -10,6 +10,8 @@
 
         "UsersClient": "./app/views/react/rest/clients/UsersClient.jsx",
 
+        "SignUpForm": "./app/views/react/components/SignUpForm.jsx",
+
         "MainCSS": "./public/stylesheets/main.css"
       }
     }]

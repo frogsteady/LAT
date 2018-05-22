@@ -26,7 +26,14 @@ package object controllers {
 
   case class UserInfo(username: String, password: String)
 
+  case class UserInfoFull(email: String, username: String, login: String, password: String)
+
   object UserInfo {
+    // Use a JSON format to automatically convert between case class and JsObject
+    implicit val format: Format[UserInfo] = Json.format[UserInfo]
+  }
+
+  object UserInfoFull {
     // Use a JSON format to automatically convert between case class and JsObject
     implicit val format: Format[UserInfo] = Json.format[UserInfo]
   }
@@ -36,6 +43,15 @@ package object controllers {
       "username" -> text,
       "password" -> text
     )(UserInfo.apply)(UserInfo.unapply)
+  )
+
+  val signUpFormForm = Form(
+    mapping(
+      "email" -> text,
+      "username" -> text,
+      "login" -> text,
+      "password" -> text
+    )(UserInfoFull.apply)(UserInfoFull.unapply)
   )
 
   def discardingSession(result: Result): Result = {

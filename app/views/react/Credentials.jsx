@@ -8,6 +8,7 @@ import EmailIcon from '@atlaskit/icon/glyph/email';
 import UsersClient from 'UsersClient';
 import InviteTeamIcon from '@atlaskit/icon/glyph/invite-team';
 import renderHTML from 'react-render-html';
+import SignUpForm from 'SignUpForm';
 
 export default class Credentials extends React.Component {
 
@@ -28,7 +29,7 @@ export default class Credentials extends React.Component {
     }
 
     goCreateNewAccount = () => this.setState({isLogInForm: false, isSignUpForm: true, isForgotForm: false});
-    goLogInWithExistingAccount = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
+    showLogInWithExistingAccount = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
     goForgotAccount= () => this.setState({isLogInForm: false, isSignUpForm: false, isForgotForm: true});
 
 
@@ -83,39 +84,9 @@ export default class Credentials extends React.Component {
                 }
 
                 {isSignUpForm &&
-                <div>
-                    <h2>Sign up to create you own lam page.</h2>
-                    <div style={{border: '5px'}}>
-
-                            <FieldTextStateless value={email}
-                                                placeholder="Email"
-                                                name="email"
-                                                onChange={this.handleInputChange}
-                                                shouldFitContainer={true}/>
-                            <FieldTextStateless value={name}
-                                                placeholder="Full name"
-                                                name="name"
-                                                onChange={this.handleInputChange}
-                                                shouldFitContainer={true}/>
-                            <FieldTextStateless value={login}
-                                                placeholder="Login"
-                                                name="login"
-                                                onChange={this.handleInputChange}
-                                                shouldFitContainer={true}/>
-                            <FieldTextStateless value={password}
-                                                placeholder="Password"
-                                                name="password"
-                                                type={"password"}
-                                                onChange={this.handleInputChange}
-                                                shouldFitContainer={true}/>
-
-                        <br/>
-                        <Button onClick={this.doCreateUser} shouldFitContainer={true} appearance="primary" iconBefore={<InviteTeamIcon/>}/>
-                        <div style={{fontSize: "12px", textAlign: "center"}}>
-                            <Button onClick={this.goLogInWithExistingAccount} appearance="link">Log In with an existing account</Button>
-                        </div>
-                    </div>
-                </div>
+                    <SignUpForm email={email} username={name} login={login} password={password}
+                                handleInputChange={this.handleInputChange}
+                                showLogInWithExistingAccount={this.showLogInWithExistingAccount}/>
                 }
 
                 {isForgotForm &&
