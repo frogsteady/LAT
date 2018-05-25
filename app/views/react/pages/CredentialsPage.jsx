@@ -9,7 +9,7 @@ import CredentialsForm from 'CredentialsForm'
 import SingleLineTextInput from '@atlaskit/input';
 import InlineEdit from '@atlaskit/inline-edit';
 
-export default class ExampleBasic extends React.Component {
+export default class CredentialsPage extends React.Component {
 
     constructor() {
         super();

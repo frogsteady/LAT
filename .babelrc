@@ -6,10 +6,9 @@
       "root": ["./src/main/react"],
       "alias": {
 
-        "CredentialsPage": "./app/views/react/pages/CredentialsPage.jsx",
         "Switcher": "./app/views/react/Switcher.jsx",
 
-        "UsersClient": "./app/views/react/rest/clients/UsersClient.jsx",
+        "CredentialsPage": "./app/views/react/pages/CredentialsPage.jsx",
 
         "SignUpForm": "./app/views/react/components/credentials/SignUpForm.jsx",
         "ForgotForm": "./app/views/react/components/credentials/ForgotForm.jsx",
