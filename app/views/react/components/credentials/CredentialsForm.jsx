@@ -1,7 +1,6 @@
 import React from 'react';
 import 'MainCSS';
 import '@atlaskit/button-group';
-import UsersClient from 'UsersClient';
 import SignUpForm from 'SignUpForm';
 import ForgotForm from 'ForgotForm';
 import LogInForm from 'LogInForm';
