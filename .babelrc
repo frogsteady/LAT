@@ -11,6 +11,8 @@
         "UsersClient": "./app/views/react/rest/clients/UsersClient.jsx",
 
         "SignUpForm": "./app/views/react/components/SignUpForm.jsx",
+        "ForgotForm": "./app/views/react/components/ForgotForm.jsx",
+        "LogInForm": "./app/views/react/components/LogInForm.jsx",
 
         "MainCSS": "./public/stylesheets/main.css"
       }
