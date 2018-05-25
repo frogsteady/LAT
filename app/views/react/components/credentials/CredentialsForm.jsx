@@ -26,14 +26,6 @@ export default class Credentials extends React.Component {
     showLogInWithExistingAccount = () => this.setState({isLogInForm: true, isSignUpForm: false, isForgotForm: false});
     showForgotForm= () => this.setState({isLogInForm: false, isSignUpForm: false, isForgotForm: true});
 
-
-    doCreateUser = () =>
-    {
-        console.log('doCreateUser is pressed');
-        const {login, password, name, email} = this.state;
-        UsersClient(this.props.handleAuthError).createUser({login, password, name, email});
-    };
-
     handleInputChange(event)
     {
         let {name, value} = event.target;

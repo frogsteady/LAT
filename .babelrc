@@ -5,14 +5,15 @@
     ["module-resolver", {
       "root": ["./src/main/react"],
       "alias": {
+
         "LoginDialogComponent": "./app/views/react/LoginDialog.jsx",
-        "CredentialsComponent": "./app/views/react/Credentials.jsx",
 
         "UsersClient": "./app/views/react/rest/clients/UsersClient.jsx",
 
-        "SignUpForm": "./app/views/react/components/SignUpForm.jsx",
-        "ForgotForm": "./app/views/react/components/ForgotForm.jsx",
-        "LogInForm": "./app/views/react/components/LogInForm.jsx",
+        "SignUpForm": "./app/views/react/components/credentials/SignUpForm.jsx",
+        "ForgotForm": "./app/views/react/components/credentials/ForgotForm.jsx",
+        "LogInForm": "./app/views/react/components/credentials/LogInForm.jsx",
+        "CredentialsForm": "./app/views/react/components/credentials/CredentialsForm.jsx",
 
         "MainCSS": "./public/stylesheets/main.css"
       }

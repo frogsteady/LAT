@@ -4,7 +4,7 @@ import PageHeader from '@atlaskit/page-header';
 import 'MainCSS';
 import '@atlaskit/button-group';
 import Page, {Grid, GridColumn} from '@atlaskit/page'
-import CredentialsJSX from 'CredentialsComponent'
+import CredentialsForm from 'CredentialsForm'
 
 import SingleLineTextInput from '@atlaskit/input';
 import InlineEdit from '@atlaskit/inline-edit';
@@ -68,7 +68,7 @@ export default class ExampleBasic extends React.Component {
                         </GridColumn>
 
                         <GridColumn medium={4}>
-                            <CredentialsJSX/>
+                            <CredentialsForm/>
                         </GridColumn>
                         <GridColumn>
                             <h2>Content below which takes up remaining space</h2>
@@ -82,26 +82,6 @@ export default class ExampleBasic extends React.Component {
                     </Grid>
                 </Page>
 
-
-                {/*{ (*/}
-                    {/*<Modal actions={actions} onClose={this.close} width={"small"} heading="Modal Title">*/}
-                        {/*<div>*/}
-                            {/*<FieldTextStateless label="Login"*/}
-                                                {/*shouldFitContainer={true}*/}
-                                {/*//onChange={this.setValue} value={this.state.value}*/}
-                            {/*/>*/}
-                            {/*<FieldTextStateless label="Password"*/}
-                                                {/*type={"password"}*/}
-                                                {/*shouldFitContainer={true}*/}
-                                {/*//onChange={this.setValue} value={this.state.value}*/}
-                            {/*/>*/}
-
-                            {/*<div style={{fontSize: "10px"}}>*/}
-                            {/*<AButton appearance="link" >Forgot password?</AButton>*/}
-                            {/*</div>*/}
-                        {/*</div>*/}
-                    {/*</Modal>*/}
-                {/*)}*/}
             </div>
         );
     }
