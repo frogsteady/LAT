@@ -26,12 +26,12 @@ class LoginController @Inject() (
         case true => sessionGenerator.createSession(userInfo).map {
           case (sessionId, encryptedCookie) =>
             val session = request.session + (SESSION_ID -> sessionId)
-            Redirect(routes.HomeController.index())
+            Redirect(routes.Application.index())
               .withSession(session)
               .withCookies(encryptedCookie)
         }
         case false =>  Future.successful {
-          Redirect(routes.HomeController.index()).flashing(FLASH_ERROR -> "Could not login! Please check your credentials.")
+          Redirect(routes.Application.index()).flashing(FLASH_ERROR -> "Could not login! Please check your credentials.")
         }
       }
     }

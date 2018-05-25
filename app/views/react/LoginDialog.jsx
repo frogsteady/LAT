@@ -71,7 +71,7 @@ export default class ExampleBasic extends React.Component {
                             <CredentialsForm/>
                         </GridColumn>
                         <GridColumn>
-                            <h2>Content below which takes up remaining space</h2>
+                            <h2>Content below which takes up remaining space, Username is {document.userInfo.username}</h2>
                             <p>
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                                 Blanditiis voluptatum perspiciatis doloribus dignissimos accusamus

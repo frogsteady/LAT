@@ -14,7 +14,10 @@
         <div id="content"></div>
 
         <script type="text/javascript">
-            document.csrfToken = '@helper.CSRF.formField'
+            document.csrfToken = '@helper.CSRF.formField';
+            document.userInfo = {};
+            document.userInfo.isDefined = @request.userInfo.isDefined;
+            document.userInfo.username = '@{request.userInfo.map(_.username).getOrElse("undefined")}';
         </script>
 
         <script src="@routes.Assets.at("javascripts/build.js")" type="text/javascript"></script>

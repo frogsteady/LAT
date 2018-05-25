@@ -3,7 +3,7 @@
 # ~~~~
 
 # Home page
-GET     /a                           controllers.Application.index
+GET     /d                           controllers.HomeController.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
@@ -21,7 +21,7 @@ PUT           /rest/1/link/:id        controllers.LinkController.update(id: Long
 DELETE        /rest/1/link/:id        controllers.LinkController.delete(id: Long)
 
 
-GET     /                           controllers.HomeController.index
+GET     /                          controllers.Application.index
 POST     /login                    controllers.LoginController.login
 POST     /signup                   controllers.LoginController.signup
 POST     /logout                   controllers.LogoutController.logout
