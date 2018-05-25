@@ -6,7 +6,8 @@
       "root": ["./src/main/react"],
       "alias": {
 
-        "LoginDialogComponent": "./app/views/react/LoginDialog.jsx",
+        "CredentialsPage": "./app/views/react/pages/CredentialsPage.jsx",
+        "Switcher": "./app/views/react/Switcher.jsx",
 
         "UsersClient": "./app/views/react/rest/clients/UsersClient.jsx",
 
