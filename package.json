@@ -7,10 +7,11 @@
     "test": "test"
   },
   "dependencies": {
+    "@atlaskit/avatar": "^10.0.7",
     "@atlaskit/button": "^6.3.1",
     "@atlaskit/button-group": "^1.5.4",
     "@atlaskit/field-text": "^4.1.6",
-    "@atlaskit/icon": "^10.8.0",
+    "@atlaskit/icon": "^10.13.0",
     "@atlaskit/inline-dialog": "^5.1.2",
     "@atlaskit/inline-edit": "^4.5.18",
     "@atlaskit/input": "^1.6.6",
