@@ -3,5 +3,5 @@ import React from 'react';
 import Switcher from 'Switcher';
 
 render(
-    <Switcher/>, document.getElementById('content')
+    <Switcher username={document.userInfo.username} />, document.getElementById('content')
 );

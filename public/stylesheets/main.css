@@ -1,18 +1,25 @@
-body{
-    margin: 0;
-    padding: 0;
-    background:white;
-}
 html{
     margin: 0;
     padding: 0;
-    /*background:#000;*/
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background: white;
+    /*background: #F5F5F5;*/
 }
 
 .white {
-    background-color:  rgba(0,0,0,0.8);
+    background-color:  #3f3f3f;
 }
 
 .gUrIuX {
-    margin: 0px;
+    margin: 0!important;
 }
+
+
+/*override blue to purple*/
+/*.bTbpPj {*/
+    /*background: #6A5ACD!important;*/
+/*}*/

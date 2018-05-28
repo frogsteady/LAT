@@ -9,6 +9,7 @@
         "Switcher": "./app/views/react/Switcher.jsx",
 
         "CredentialsPage": "./app/views/react/pages/CredentialsPage.jsx",
+        "LinksPage": "./app/views/react/pages/LinksPage.jsx",
 
         "SignUpForm": "./app/views/react/components/credentials/SignUpForm.jsx",
         "ForgotForm": "./app/views/react/components/credentials/ForgotForm.jsx",
