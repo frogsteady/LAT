@@ -46,12 +46,16 @@ export default class LinksPage extends React.Component {
 
         return (
 
+
+            <div style={{background: 'rebeccapurple'}}>
         <Page>
 
 
             <Grid>
 
                 <GridColumn medium={8}>
+                    <div style={{background: 'white'}}>
+
                     <div>Hi, you are logged in!</div>
                     <div style={{marginBottom: '50px'}}>
                         <a href={'http://vk.com'}>http://vk.com</a>
@@ -65,6 +69,7 @@ export default class LinksPage extends React.Component {
                         maxCount={14}
                         size="xlarge"
                     />
+                    </div>
                 </GridColumn>
 
             </Grid>
@@ -87,6 +92,6 @@ export default class LinksPage extends React.Component {
             {/*}*/}
 
 
-        </Page>);
+        </Page></div>);
     }
 }
