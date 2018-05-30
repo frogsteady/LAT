@@ -7,6 +7,7 @@ import CredentialsForm from 'CredentialsForm'
 import SingleLineTextInput from '@atlaskit/input';
 import InlineEdit from '@atlaskit/inline-edit';
 import Avatar from '@atlaskit/avatar';
+import {AvatarGroup} from '@atlaskit/avatar';
 
 export default class LinksPage extends React.Component {
 
@@ -32,24 +33,60 @@ export default class LinksPage extends React.Component {
 
     render()
     {
-        return (
-        <Page>
-            {this.links.map((link) =>
-                <div style={{display:"inline-flex"}}>
-                    <Avatar src={this.getFaviconFromUrl(link)}  size="xlarge"/>
-                    <InlineEdit readView="Read view"
-                                editView={
-                                    <SingleLineTextInput
-                                        id="inline-edit-text-input"
-                                        isEditing
-                                        isInitiallySelected
-                                    />
-                                }
-                    />
-                </div>)
-            }
+        const data = this.links.map(link => ({
+            email: link,
+            key: link,
+            name: link,
+            src: this.getFaviconFromUrl(link),
+            href: '#',
+            appearance: 'square',
+            size: 'medium',
+            enableTooltip: true,
+        }));
 
-            <div>Hi, you are logged in!</div>
+        return (
+
+        <Page>
+
+
+            <Grid>
+
+                <GridColumn medium={8}>
+                    <div>Hi, you are logged in!</div>
+                    <div style={{marginBottom: '50px'}}>
+                        <a href={'http://vk.com'}>http://vk.com</a>
+                        I use it rarely
+                    </div>
+
+                    <AvatarGroup
+                        appearance="grid"
+                        onAvatarClick={console.log}
+                        data={data}
+                        maxCount={14}
+                        size="xlarge"
+                    />
+                </GridColumn>
+
+            </Grid>
+
+
+
+            {/*{this.links.map((link) =>*/}
+                {/*<div >*/}
+                    {/*<Avatar src={this.getFaviconFromUrl(link)}  size="xlarge"/>*/}
+                    {/*<InlineEdit readView="Read view"*/}
+                                {/*editView={*/}
+                                    {/*<SingleLineTextInput*/}
+                                        {/*id="inline-edit-text-input"*/}
+                                        {/*isEditing*/}
+                                        {/*isInitiallySelected*/}
+                                    {/*/>*/}
+                                {/*}*/}
+                    {/*/>*/}
+                {/*</div>)*/}
+            {/*}*/}
+
+
         </Page>);
     }
 }

@@ -29,22 +29,7 @@ export default class CredentialsPage extends React.Component {
                         possimus labore! Mollitia est quis minima asperiores.
                     </p>
 
-                    hi there
-                    <InlineEdit
-                        label="With edit & read views"
-                        readView="Read view"
-                        editView={
-                            <SingleLineTextInput
-                                id="inline-edit-text-input"
-                                isEditing
-                                isInitiallySelected
-                                value={this.state.editValue}
-                                onChange={this.onChange}
-                            />
-                        }
-                        onConfirm={this.onConfirm}
-                        onCancel={this.onCancel}
-                    />
+                    Hi there, Ius
                 </GridColumn>
                 <GridColumn medium={2}>
                 </GridColumn>
