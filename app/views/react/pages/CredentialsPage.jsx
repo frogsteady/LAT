@@ -18,6 +18,7 @@ export default class CredentialsPage extends React.Component {
     render()
     {
         return (
+            <div className={'credentials-page-class'}>
         <Page>
             <Grid>
                 <GridColumn medium={6}>
@@ -47,6 +48,7 @@ export default class CredentialsPage extends React.Component {
                     </p>
                 </GridColumn>
             </Grid>
-        </Page>);
+        </Page>
+            </div>);
     }
 }

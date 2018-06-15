@@ -1,0 +1,20 @@
+appnetwork:
+  image: ubuntu
+  ports:
+    - 55666:5432
+  command: sleep infinity
+apppostgresdata:
+  image: ubuntu
+  volumes:
+    - /var/lib/postgresql/data
+  command: echo app_postgresdata_only
+apppostgres:
+  image: postgres:9.4
+  volumes_from:
+    - apppostgresdata
+  net: container:appnetwork
+#  volumes:
+#    - "./config/init.sql:/docker-entrypoint-initdb.d/init.sql"
+  environment:
+    - DB_PASS=idalko
+    - DB_USER=idalko

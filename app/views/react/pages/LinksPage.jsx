@@ -39,59 +39,39 @@ export default class LinksPage extends React.Component {
             name: link,
             src: this.getFaviconFromUrl(link),
             href: '#',
-            appearance: 'square',
+            appearance: 'circle',
             size: 'medium',
             enableTooltip: true,
+            name:'vk.com',
+            secondaryTest:'will add all to friend list'
         }));
 
         return (
 
 
-            <div style={{background: 'rebeccapurple'}}>
-        <Page>
 
 
-            <Grid>
 
-                <GridColumn medium={8}>
-                    <div style={{background: 'white'}}>
+                    <div className={'links-page-class'}>
 
-                    <div>Hi, you are logged in!</div>
-                    <div style={{marginBottom: '50px'}}>
-                        <a href={'http://vk.com'}>http://vk.com</a>
-                        I use it rarely
-                    </div>
+                    <h2>Tony White</h2>
+                    <h4 className={'links-description-class'}>
+                        I'm a developer :)
+                    </h4>
 
+                        <div style={{borderRadius: '15px', background: 'white'}}>
                     <AvatarGroup
                         appearance="grid"
-                        onAvatarClick={console.log}
+                        onAvatarClick={v=>window.open(v.item.email, '_blank')}
                         data={data}
                         maxCount={14}
                         size="xlarge"
                     />
+                        </div>
                     </div>
-                </GridColumn>
-
-            </Grid>
 
 
 
-            {/*{this.links.map((link) =>*/}
-                {/*<div >*/}
-                    {/*<Avatar src={this.getFaviconFromUrl(link)}  size="xlarge"/>*/}
-                    {/*<InlineEdit readView="Read view"*/}
-                                {/*editView={*/}
-                                    {/*<SingleLineTextInput*/}
-                                        {/*id="inline-edit-text-input"*/}
-                                        {/*isEditing*/}
-                                        {/*isInitiallySelected*/}
-                                    {/*/>*/}
-                                {/*}*/}
-                    {/*/>*/}
-                {/*</div>)*/}
-            {/*}*/}
-
-
-        </Page></div>);
+        );
     }
 }

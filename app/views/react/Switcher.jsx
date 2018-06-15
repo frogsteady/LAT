@@ -61,13 +61,13 @@ export default class Switcher extends Component
         );
 
         return (
-        <div>
-            <div className={'white'}>
-                <PageHeader
-                    actions={actions}>
-                    Title describing the content
-                </PageHeader>
-            </div>
+        <div className={'main-class'}>
+            {/*<div className={'header-class'}>*/}
+                {/*<PageHeader*/}
+                    {/*actions={actions}>*/}
+                    {/*Title describing the content*/}
+                {/*</PageHeader>*/}
+            {/*</div>*/}
             <BrowserRouter>
                 {this.renderSwitchDependingOnAuth()}
             </BrowserRouter>
