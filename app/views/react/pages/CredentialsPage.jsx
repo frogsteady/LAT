@@ -13,42 +13,31 @@ export default class CredentialsPage extends React.Component {
     {
         super();
         this.state = { isLogInForm: true, isSignUpForm: false };
+        // {document.userInfo.username}
     }
 
     render()
     {
         return (
-            <div className={'credentials-page-class'}>
-        <Page>
-            <Grid>
-                <GridColumn medium={6}>
-                    <h1>Main heading</h1>
-                    <p>
-                        Lorem ipsum dolor sit amet and consectetur adipisicing elit.
-                        Blanditiis voluptatum perspiciatis doloribus dignissimos accusamus
-                        commodi, nobis ut, error iusto, quas vitae nesciunt consequatur
-                        possimus labore! Mollitia est quis minima asperiores.
-                    </p>
+            <div className={'credentials-page-class'} style={{display: 'table'}}>
 
-                    Hi there, Ius
-                </GridColumn>
-                <GridColumn medium={2}>
-                </GridColumn>
+                <h1 style={{textAlign: 'center', marginBottom: '0'}}>Look at me</h1>
+                <p style={{textAlign: 'center', color: 'white', marginTop: '0', backgroundColor: 'darkslateblue'}}>
+                    Share your socials instantly.
+                </p>
 
-                <GridColumn medium={4}>
+                <div style={{marginTop: '10%', marginLeft: '25%', marginRight: '25%'}}>
                     <CredentialsForm/>
-                </GridColumn>
-                <GridColumn>
-                    <h2>Content below which takes up remaining space, Username is {document.userInfo.username}</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                        Blanditiis voluptatum perspiciatis doloribus dignissimos accusamus
-                        commodi, nobis ut, error iusto, quas vitae nesciunt consequatur
-                        possimus labore! Mollitia est quis minima asperiores.
-                    </p>
-                </GridColumn>
-            </Grid>
-        </Page>
+                </div>
+
+                <div style={{
+                    display: 'table-row',
+                    verticalAlign: 'bottom',
+                    height: '1px', textAlign: 'center', color: 'darkslategrey', fontSize: '12px'
+                }}>
+                    <p>© 2018 Look At Me</p>
+                </div>
+
             </div>);
     }
 }

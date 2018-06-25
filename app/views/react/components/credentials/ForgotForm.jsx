@@ -24,7 +24,7 @@ export default class ForgotForm extends React.Component
         return (
         <form action={"/resetpassword"} method={"POST"}>
             {renderHTML(document.csrfToken)}
-            <h2>Reset Password.</h2>
+            <h3 style={{color: 'darkslategrey', marginBottom: '0'}}>Reset Password.</h3>
             <div style={{border: '5px'}}>
                 <div>We can help you reset your password using your email address linked to your account.</div>
 

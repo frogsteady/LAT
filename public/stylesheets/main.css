@@ -48,6 +48,24 @@ body{
 }
 
 /*override blue to purple*/
-/*.bTbpPj {*/
+/*button*/
+.bTbpPj {
     /*background: #6A5ACD!important;*/
-/*}*/
+    background: darkslateblue!important;
+}
+/*button-hover*/
+.hPqgRo {
+    background: #6A5ACD!important;
+}
+/*text-link*/
+button.lmuHbO {
+    color: darkslateblue!important;
+}
+/*text-link-hover*/
+button.iKJURs {
+    color: #6A5ACD!important;
+}
+
+.kdoEdc {
+    border-color: #6A5ACD!important;
+}

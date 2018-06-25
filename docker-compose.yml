@@ -1,7 +1,7 @@
 appnetwork:
   image: ubuntu
   ports:
-    - 55666:5432
+    - 55667:5432
   command: sleep infinity
 apppostgresdata:
   image: ubuntu

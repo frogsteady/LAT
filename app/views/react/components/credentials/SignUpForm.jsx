@@ -27,7 +27,7 @@ export default class SignUpForm extends React.Component
         return (
         <form action={"/signup"} method={"POST"}>
             {renderHTML(document.csrfToken)}
-            <h2>Sign up to create you own lam page. 1</h2>
+            <h3 style={{color: 'darkslategrey', marginBottom: '0'}}>Sign up to create you own lam page. 1</h3>
             <div style={{border: '5px'}}>
 
                 <FieldTextStateless value={this.props.email}

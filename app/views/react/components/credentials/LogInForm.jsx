@@ -24,7 +24,7 @@ export default class LogInForm extends React.Component
     {
         return (
         <div>
-            <h2>Log in to get access to your lam page.</h2>
+            <h4 style={{color: 'darkslategrey', marginBottom: '0'}}>Log in to get access to your lam page.</h4>
 
             <form action={"/login"} method={"POST"} style={{border: '5px'}}>
 
