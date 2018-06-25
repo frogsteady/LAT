@@ -47,6 +47,11 @@ body{
     margin-left: 5%;
 }
 
+li{
+    list-style-type: none;
+    line-height: 1.5;
+}
+
 /*override blue to purple*/
 /*button*/
 .bTbpPj {
