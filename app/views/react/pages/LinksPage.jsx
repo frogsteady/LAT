@@ -7,6 +7,7 @@ import CredentialsForm from 'CredentialsForm'
 import SingleLineTextInput from '@atlaskit/input';
 import InlineEdit from '@atlaskit/inline-edit';
 import Avatar from '@atlaskit/avatar';
+import Button from '@atlaskit/button';
 import {AvatarGroup} from '@atlaskit/avatar';
 import renderHTML from "react-render-html";
 
@@ -60,6 +61,7 @@ export default class LinksPage extends React.Component {
                             {renderHTML(document.csrfToken)}
                             <input type="submit" value="logout" />
                         </form>
+                        <Button type="link" href={'edit'} value="edit" />
                     <h4 className={'links-description-class'}>
                         I'm a developer :)
                     </h4>

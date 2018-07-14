@@ -22,6 +22,7 @@ DELETE        /rest/1/link/:id        controllers.LinkController.delete(id: Long
 
 
 GET     /                          controllers.Application.index
+GET     /edit                          controllers.Application.index
 POST     /login                    controllers.LoginController.login
 POST     /signup                   controllers.LoginController.signup
 POST     /logout                   controllers.LogoutController.logout

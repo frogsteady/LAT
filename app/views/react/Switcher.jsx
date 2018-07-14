@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import CredentialsPage from 'CredentialsPage';
 import LinksPage from 'LinksPage';
+import EditLinksPage from 'EditLinksPage';
 import {BrowserRouter} from "react-router-dom";
 import Button, {ButtonGroup} from '@atlaskit/button';
 import PageHeader from '@atlaskit/page-header';
@@ -31,6 +32,7 @@ export default class Switcher extends Component
             return (
             <Switch>
                 <Route exact path='/' render={(rProps) => <LinksPage {...rProps} />}/>
+                <Route exact path='/edit' render={(rProps) => <EditLinksPage {...rProps} />}/>
             </Switch>)
         }
         else

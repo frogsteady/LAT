@@ -10,6 +10,7 @@
 
         "CredentialsPage": "./app/views/react/pages/CredentialsPage.jsx",
         "LinksPage": "./app/views/react/pages/LinksPage.jsx",
+        "EditLinksPage": "./app/views/react/pages/EditLinksPage.jsx",
 
         "SignUpForm": "./app/views/react/components/credentials/SignUpForm.jsx",
         "ForgotForm": "./app/views/react/components/credentials/ForgotForm.jsx",
