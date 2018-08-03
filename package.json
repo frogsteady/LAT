@@ -28,6 +28,7 @@
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "react": "^16.3.0",
+    //TODO: github reports problems with lodash and mixin-deep which are parts of this compoonent
     "react-beautiful-dnd": "^8.0.3",
     "react-dom": "^16.3.0",
     "react-lorem-component": "^0.12.2",

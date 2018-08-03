@@ -12,6 +12,7 @@ import {AvatarGroup} from '@atlaskit/avatar';
 import renderHTML from "react-render-html";
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import LinksUtils from "LinksUtils";
+import Button from '@atlaskit/button';
 
 // fake data generator
 // const getItems = count =>
@@ -132,6 +133,8 @@ export default class EditLinksPage extends React.Component {
                     )}
                 </Droppable>
             </DragDropContext>
+
+                <Button type="link" href={'/'} value="Cancel"   >Cancel</Button>
             </div>
         );
     }
