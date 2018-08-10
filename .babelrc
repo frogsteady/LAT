@@ -18,6 +18,8 @@
         "LogInForm": "./app/views/react/components/credentials/LogInForm.jsx",
         "CredentialsForm": "./app/views/react/components/credentials/CredentialsForm.jsx",
 
+        "StatelessLinkInput": "./app/views/react/components/links/StatelessLinkInput.jsx",
+
         // Rest Clients
         "LinksClient": "./app/views/react/rest/LinksClient.jsx",
 
