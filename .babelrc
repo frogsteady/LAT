@@ -18,6 +18,9 @@
         "LogInForm": "./app/views/react/components/credentials/LogInForm.jsx",
         "CredentialsForm": "./app/views/react/components/credentials/CredentialsForm.jsx",
 
+        // Rest Clients
+        "LinksClient": "./app/views/react/rest/LinksClient.jsx",
+
         "MainCSS": "./public/stylesheets/main.css"
       }
     }]

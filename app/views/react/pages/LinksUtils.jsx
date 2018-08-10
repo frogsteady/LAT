@@ -1,8 +1,8 @@
 module.exports = {
 
     getFaviconFromUrl: function (url) {
-        let website = url.replace('http://', '').replace('https://', '').split(/[/?#]/)[0];
-        switch (website) {
+        let website = url.replace('http://', '').replace('https://', '').split(/[/?#]/);
+        switch (website[0]) {
             case "instagram.com":
                 return "/assets/images/links/instagram.png";
             case "twitter.com":
@@ -12,7 +12,7 @@ module.exports = {
             case "youtube.com":
                 return "https://upload.wikimedia.org/wikipedia/commons/5/52/YouTube_social_white_circle_%282017%29.svg";
             default:
-                return 'http://'.concat(urlParts[0]).concat('/favicon.ico');
+                return 'http://'.concat(website[1]).concat('/favicon.ico');
         }
     }
 
