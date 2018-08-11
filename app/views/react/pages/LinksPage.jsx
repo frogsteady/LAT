@@ -11,11 +11,10 @@ export default class LinksPage extends React.Component {
 
     constructor() {
         super();
-        this.state = {isLogInForm: true, isSignUpForm: false }; //, links: [{content:"{}"}]
-        // this.links = ["http://instagram.com/goinglegendary", "http://vk.com/goinglegendary", "http://twitter.com/goinglegendary", "http://youtube.com/goinglegendary"];
+        this.state = {isLogInForm: true, isSignUpForm: false };
         LinksClient.getAllLinks().then(response => {
-            console.log(response.data);
-            this.setState({ links: response.data.map(link=>JSON.parse(link.content)[0]) }); //
+
+            this.setState({ links: JSON.parse(response.data[0].content) }); //
              //["http://instagram.com/goinglegendary", "http://vk.com/goinglegendary", "http://twitter.com/goinglegendary", "http://youtube.com/goinglegendary"];
         })
     }
@@ -35,7 +34,7 @@ export default class LinksPage extends React.Component {
         })) : [];
 
         return (
-            <div className={'links-page-class'}>
+            <div className={'links-page-class'} style={{marginTop: "2%"}}>
                 <h2>Tony White</h2>
                 <form action={"/logout"} method="post">
                     {renderHTML(document.csrfToken)}
