@@ -4,12 +4,6 @@ import '@atlaskit/button-group';
 import Button from '@atlaskit/button';
 import StatelessLinkInput from 'StatelessLinkInput';
 import LinksClient from "LinksClient";
-import {Skeleton} from "@atlaskit/avatar"
-import {colors} from "@atlaskit/theme"
-import {AvatarGroup} from '@atlaskit/avatar';
-import LinksUtils from "LinksUtils";
-import CheckCircleIcon from '@atlaskit/icon/glyph/check-circle';
-import CrossCircleIcon from '@atlaskit/icon/glyph/cross-circle';
 
 
 export default class EditLinksPage extends React.Component {
@@ -26,33 +20,21 @@ export default class EditLinksPage extends React.Component {
         })
     }
 
+    addOnClick = (e, index) => {
+        event.preventDefault();
+        let item = "http://random.org";
+        let linksCopy = this.state.links;
+        linksCopy.splice(index, 0, item);
+        this.setState({links: [...linksCopy]});
+    };
+
+    removeLinkOnClick = (event, index) => {
+        event.preventDefault();
+        this.setState(prevState => ({links: prevState.links.filter((link, i) => i !== index)}));
+
+    };
+
     render() {
-
-        const data = [{
-            email: 'save',
-            key: 'save',
-            name: 'save',
-            src: "/assets/images/ui/save.png",
-            href: '#',
-            appearance: 'square',
-            size: 'medium',
-            enableTooltip: true,
-            secondaryTest: 'will add all to friend list',
-            borderColor: '#8B0000'
-        }, {
-            email: 'cancel',
-            key: 'cancel',
-            name: 'save',
-            src: "/assets/images/ui/cancel.png",
-            href: '#',
-            appearance: 'square',
-            size: 'medium',
-            enableTooltip: true,
-            secondaryTest: 'will add all to friend list',
-            borderColor: '#8B0000'
-
-        }];
-
 
         return (
 
@@ -63,24 +45,13 @@ export default class EditLinksPage extends React.Component {
                     height: "100%",
                     overflow: "scroll"
                 }}>
-                    <div style={{display:"flex", justifyContent:"center", alignItems: "center", width: "100%", height: "100%"}}>
-                        {/*<Button type="link" href={'/'} value="Cancel">Save</Button>*/}
-                        {/*<Button type="link" href={'/'} value="Cancel">Cancel</Button>*/}
-                        {/*<Skeleton*/}
-                            {/*name="xsmall"*/}
-                            {/*size="xsmall"*/}
-                            {/*color={colors.T500}*/}
-                            {/*weight="strong"*/}
-                        {/*/>*/}
-                        <AvatarGroup
-                            appearance="grid"
-                            onAvatarClick={v => window.open(v.item.email, '_blank')}
-                            data={data}
-                            maxCount={14}
-                            size="xlarge"
-                        />
-                        {/*<CheckCircleIcon size={"xlarge"} primaryColor={"forestgreen"} />*/}
-                        {/*<CrossCircleIcon size={"xlarge"} primaryColor={"darkred"} />*/}
+                    <div style={{margin: "40% 30%"}}>
+                        <Button onClick={this.props.showLogInWithExistingAccount} appearance="primary"
+                                shouldFitContainer={true}>Save</Button>
+                        <br/>
+                        <br/>
+                        <Button onClick={this.props.showLogInWithExistingAccount} appearance="link"
+                                shouldFitContainer={true} style={{background: "ghostwhite"}}>Cancel</Button>
                     </div>
                 </div>
                 <div style={{
@@ -91,8 +62,22 @@ export default class EditLinksPage extends React.Component {
                     overflow: "scroll"
                 }}>
                     <div style={{padding: "2%"}}>
+                        <div style={{fontSize: "12px", textAlign: "center"}}>
+                            <Button appearance="link" onClick={e => this.addOnClick(e, 0)}>Add new</Button>
+                        </div>
                         {this.state.links.map((item, index) =>
-                            (<StatelessLinkInput item={item}/>))
+                            (<div key={index + "-" + item}>
+                                    {index}
+                                    <StatelessLinkInput item={item}/>
+                                    <div style={{fontSize: "12px", textAlign: "center"}}>
+                                        <Button appearance="link"
+                                                onClick={e => this.addOnClick(e, index + 1)}>Add new</Button>
+                                        <Button appearance="link"
+                                                onClick={e => this.removeLinkOnClick(e, index)}>Remove</Button>
+                                    </div>
+                                    <hr/>
+                                </div>
+                            ))
                         }
                     </div>
 

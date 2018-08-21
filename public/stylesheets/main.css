@@ -53,6 +53,10 @@ li{
 }
 
 /*override blue to purple*/
+.kyNUhd {
+    background: darkslateblue!important;
+}
+
 /*button*/
 .bTbpPj {
     /*background: #6A5ACD!important;*/
@@ -71,6 +75,19 @@ button.iKJURs {
     color: #6A5ACD!important;
 }
 
+/*button-text-link*/
+button.gADglA {
+    color: darkslateblue!important;
+}
+
+/*button-text-link-hover*/
+button.iIwEin {
+    color: #6A5ACD!important;
+}
+/*button-text-link-double-click*/
+.drnNMu {
+    color: white;
+}
 .kdoEdc {
     border-color: #6A5ACD!important;
 }
